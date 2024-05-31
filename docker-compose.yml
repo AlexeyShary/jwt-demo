@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  jwt-demo-db:
+    image: postgres:14-alpine
+    ports:
+      - "8081:5432"
+    environment:
+      - POSTGRES_DB=jwtdemo
+      - POSTGRES_USER=jwtdemo
+      - POSTGRES_PASSWORD=jwtdemo

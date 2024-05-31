@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:8081/jwtdemo}
+    username: ${DATABASE_USERNAME:jwtdemo}
+    password: ${DATABASE_PASSWORD:jwtdemo}
+
+jwt:
+  accessTokenSecret: very-secret-access-token-secret
+  accessTokenExpiration: PT15M
+  refreshTokenExpiration: PT30M

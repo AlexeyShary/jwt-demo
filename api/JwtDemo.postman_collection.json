@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "424febb7-59db-44e3-aae8-dafb61659e34",
+		"name": "JwtDemo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26948900"
+	},
+	"item": [
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/public/token/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"08ea4bf9-e170-41ef-9ff1-faf2bb372a00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/public/token/refresh"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Public",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"login\": \"testuser\",\r\n    \"password\": \"testpassword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/v1/public/user/register"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Private",
+					"item": [
+						{
+							"name": "Get all users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/v1/private/user"
+							},
+							"response": []
+						},
+						{
+							"name": "Get user by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/v1/private/user/1"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Delete user",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:8080/api/v1/admin/user/1"
+							},
+							"response": []
+						},
+						{
+							"name": "Patch user",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"roles\": [\r\n            \"ROLE_USER\",\r\n            \"ROLE_ADMIN\"\r\n        ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/v1/admin/user/3"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "Public",
+					"item": [
+						{
+							"name": "Get all news",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/v1/public/news"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Private",
+					"item": [
+						{
+							"name": "Create new news",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"header\": \"header news\",\r\n    \"content\": \"content news\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/v1/private/news"
+							},
+							"response": []
+						},
+						{
+							"name": "Get news by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:8080/api/v1/private/news/2"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "Delete news",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:8080/api/v1/admin/news/1"
+							},
+							"response": []
+						},
+						{
+							"name": "Patch news",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"header\": \"header news patched\",\r\n    \"content\": \"content news patched\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/api/v1/admin/news/2"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcxNzA4MzYzOCwiZXhwIjoxNzE3MDg0NTM4LCJyb2xlIjpbIlJPTEVfVVNFUiIsIlJPTEVfQVVUSE9SIiwiUk9MRV9BRE1JTiJdLCJpZCI6MX0.Ogf5wZpkLaXkoaXHSi7iTX6h45KcWAn1T_WRbr2rU5BZKzxbGEeKAQwhWhHTh-yLAnFFmYCRVoOlPFfTn7hCUw"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
